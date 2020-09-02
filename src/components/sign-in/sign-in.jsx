@@ -8,6 +8,9 @@ import FormInput from '../form-input/form-input';
 //customized button component 
 import CustomButton from '../custom-buttom/custom-button';
 
+//importing our firebase 
+import {signInWithGoogle} from '../../firebase/firebase.utils';
+
 
 
 class SignIn extends Component {
@@ -57,7 +60,7 @@ class SignIn extends Component {
                     />
                     
                     <CustomButton type='submit'>Sign In</CustomButton>
-                    
+                    <CustomButton onClick={signInWithGoogle}>Sign In With Google</CustomButton>
                 </form>
             </div>
         )
