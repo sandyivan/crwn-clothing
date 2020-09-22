@@ -11,6 +11,9 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 //importing styles for this conponent 
 import './header.scss';
 
+//import function from redux
+import { connect }  from 'react-redux';
+
 
 const Header = ({currentUser}) => {
     return(
@@ -33,4 +36,9 @@ const Header = ({currentUser}) => {
     )
 }
 
-export default Header;
+
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+})
+
+export default connect(mapStateToProps)(Header);
