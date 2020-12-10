@@ -16,4 +16,6 @@ const userReducer = (state = INITIAL_STATE, action) => {
     }
 }
 
-export default userReducer;
+export default userReducer; 
+
+// this reducer will return a new object when the action.type match our case in switch statement.

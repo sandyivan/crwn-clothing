@@ -33,7 +33,7 @@ class SignIn extends Component {
             this.setState({
                 email: '',
                 password: ''
-            })
+            }) 
         } catch (error) {
             console.log(error.message)
         }
@@ -43,8 +43,6 @@ class SignIn extends Component {
     handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name] : value });
-       
-    
     }
 
 
@@ -59,7 +57,7 @@ class SignIn extends Component {
                         name='email' 
                         type='email' 
                         value={email}
-                        onChange={this.handleChange} 
+                        handleChange={this.handleChange} 
                         required
                         label='Email'
                     />
@@ -67,7 +65,7 @@ class SignIn extends Component {
                         name='password'  
                         type='password' 
                         value={password}
-                        onChange={this.handleChange} 
+                        handleChange={this.handleChange} 
                         required 
                         label='Password'
                     />
