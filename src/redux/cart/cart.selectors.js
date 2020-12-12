@@ -1,13 +1,14 @@
 import { createSelector } from "reselect";
 // theres is 2 types of selectors that we are going to write 
-// input selectors and outpot selectors 
-// inpunt selectors doesnt use a createselector 
-// outpot selector use input selector and createselector to build itself 
+// input selectors and output selectors 
+// input selectors doesnt use a createselector 
+// output selector use input selector and createselector to build itself 
 
 
 // this is an input selector, its a function that gets the whole state
 // and just return a slice of it, one layer deep usually
 const selectCart = state => state.cart; 
+
 
 
 // this is an output selector
@@ -20,10 +21,23 @@ export const selectCartItems = createSelector( // this createSelector is what do
     (cart) => cart.cartItems
 )
 
+
+export const selectCartHidden = createSelector(
+    [selectCart],
+    (cart) => cart.hidden
+)
+
 export const selectCartItemsCount = createSelector(
     [selectCartItems],
     (cartItems) =>  cartItems.reduce((accumulatorQuantity, cartItem) => {
         return accumulatorQuantity + cartItem.quantity
+    },  0)
+)
+
+export const selectCartTotal = createSelector(
+    [selectCartItems],
+    (cartItems) => cartItems.reduce((accumulatorQuantity, cartItem) => {
+        return accumulatorQuantity + cartItem.quantity * cartItem.price
     },  0)
 )
  

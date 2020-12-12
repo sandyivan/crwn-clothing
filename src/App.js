@@ -6,9 +6,11 @@ that lets us modify our components to have access
 to things related to redux. 
 */ 
 import { connect }  from 'react-redux';
+import { createStructuredSelector } from "reselect";
 //importing our user action
 import { setCurrentUser } from './redux/user/user.action';
 
+import { selectCurrentUser } from "./redux/user/user.selectors";
 
 //importing react route component for navigation to different pages in our app
 import { Route, Switch, Redirect } from 'react-router-dom';
@@ -17,6 +19,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage';
 import ShopPage from './pages/shop/shop';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
+import CheckoutPage from './pages/checkout/checkout';
+
 
 //firebase
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';
@@ -73,6 +77,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage}/>
           <Route path='/shop' component={ShopPage}/>
+          <Route exact path='/checkout' component={CheckoutPage}/>
           <Route exact path='/signin' render={() => this.props.currentUser? (<Redirect to='/' />) : (<SignInAndSignUp />)} />
         </Switch>
       </div>
@@ -80,8 +85,8 @@ class App extends React.Component {
   }
 }
  
-const mapStateToProps = ({user}) => ({
-  currentUser: user.currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 });
 
 // dispatch() is a way for redux to know that whatever you're passing me, whatever object you're passing me is going 

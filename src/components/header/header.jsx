@@ -20,6 +20,12 @@ to things related to redux.
 */ 
 import { connect }  from 'react-redux';
 
+import {createStructuredSelector} from "reselect";
+
+//importing our selector
+import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
+
 //importing our cart dropdown component here
 import CartDropdown from '../cart-dropdown/cart-dropdown';
 
@@ -54,9 +60,9 @@ mapStateToProps allow us to access the root reducer. this function has "state"(s
 this function returns an object where the property name is what property we want to pass in to this component, in our 
 case we want this component to have access to currentUser property. 
 */
-const mapStateToProps = ({user: { currentUser }, cart: { hidden }}) => ({
-    currentUser,
-    hidden
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+    hidden: selectCartHidden
 })
 
 /*
