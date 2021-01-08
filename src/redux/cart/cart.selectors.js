@@ -10,7 +10,7 @@ import { createSelector } from "reselect";
 const selectCart = state => state.cart; 
 
 
-
+  
 // this is an output selector
 // createSelector() takes 2 arguments, 1st is a collection of input selectors.
 // second argument is a function that return the value we want out of selector,
