@@ -20,7 +20,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 
     //if the cartItemToAdd is not found inside of our cartItems array, we want to return a new array.
     // with all of our existing cartItems that already there, but now we also want to add in  an object
-    //which is equal to our cart item to add  except we're gonna give it a base quantity of one.
+    //which is cartItemToAdd  except we're gonna give it a base quantity of one.
     return [...cartItems, {...cartItemToAdd, quantity: 1}]
 }
 

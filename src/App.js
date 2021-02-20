@@ -44,7 +44,7 @@ class App extends React.Component {
       if(userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         //we are checking if our database is updated in that reference(userref) with any new data. 
-        //the onSnapshot is similar to onAuthStateChanged,
+        //the onSnapshot is similar to onAuthStateChanged, 
         // it will give us an snapshot object representing the data that is currently in  our database
         //on the snapshot object is where we are going to get the data related to this user that we currently jus possibly stored
         //, if its new authintacation or the data the is related to the user that already stored in our database
