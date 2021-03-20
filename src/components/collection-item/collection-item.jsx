@@ -2,6 +2,7 @@ import React from 'react';
 // importing styles for this component 
 import './collection-item.scss';
 
+//these are the redux bindings 
 import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.action';
 
@@ -29,7 +30,7 @@ const CollectionItem = ({ item, addItem }) => {
 }
 
 const mapdDispatchToProps = dispatch => ({
-    addItem: item =>  dispatch(addItem(item))
+    addItem: item =>  dispatch(addItem(item)) 
 })
 
 export default connect(null, mapdDispatchToProps)(CollectionItem);

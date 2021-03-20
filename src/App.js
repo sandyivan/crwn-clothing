@@ -35,15 +35,15 @@ import Header from './components/header/header';
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
-
+  
   componentDidMount() {
     const { setCurrentUser } = this.props;
-
+    // this pretty much how we can handle our app being aware of any auth changes in our firebase database   
     this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
-
+      // if useruth is true createUserProfileDocument will give us back a userRef document if false it will create a data in that reference and still give us back userRef
       if(userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-        //we are checking if our database is updated in that reference(userref) with any new data. 
+        //we are checking if our database is updated in that reference(useref) with any new data. 
         //the onSnapshot is similar to onAuthStateChanged, 
         // it will give us an snapshot object representing the data that is currently in  our database
         //on the snapshot object is where we are going to get the data related to this user that we currently jus possibly stored
@@ -63,10 +63,10 @@ class App extends React.Component {
     })
   }
 
-
+  // we want to close our subsciption whenever this app is unmounted, so we don't have any memory leak
   componentWillUnmount() {
     this.unsubscribeFromAuth();
-  }
+  }     
 
 
   render() {
@@ -79,8 +79,8 @@ class App extends React.Component {
           <Route path='/shop' component={ShopPage}/>
           <Route exact path='/checkout' component={CheckoutPage}/>
           <Route exact path='/signin' render={() => this.props.currentUser? (<Redirect to='/' />) : (<SignInAndSignUp />)} />
-        </Switch>
-      </div>
+        </Switch> 
+      </div> 
     )
   }
 }

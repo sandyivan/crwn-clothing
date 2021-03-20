@@ -16,11 +16,14 @@ const config = {
 
 
   export const createUserProfileDocument = async (userAuth, additionalData) => {
-    if(!userAuth) return;
+    /*if user sign out this userAuth is equal to null so lets exit from this function8*/
+    if(!userAuth) return;  
 
     const userRef = firestore.doc(`users/${userAuth.uid}`);
     const snapShot = await userRef.get();
     
+
+    /*checking if any user data exist in this snapShop, if none lets create a data in that location using the data we get from userAuth.*/
     if(!snapShot.exists) {
       const { displayName, email } = userAuth;  
       const createdAt = new Date();

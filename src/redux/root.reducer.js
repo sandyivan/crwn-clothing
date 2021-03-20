@@ -14,7 +14,7 @@ import shopReducer from './shop/shop.reducer';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['cart'] // this is an array containing the string names of any reducer we want to persist 
+    whitelist: ['cart'] // this is an array containing the string names of any reducer we want to persist/store using localstorage in our case.  
 } 
 
 

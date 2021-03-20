@@ -16,7 +16,8 @@ import { toggleCartHidden } from "../../redux/cart/cart.action";
 
 import './cart-dropdown.scss';
 
-const CartDropdown = ({ cartItems, history, dispatch }) => {
+const CartDropdown = ({ cartItems, history, dispatch}) => {
+    
     return (
         <div className='cart-dropdown'>
             <div className='cart-items' />

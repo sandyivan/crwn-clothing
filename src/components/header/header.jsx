@@ -16,10 +16,10 @@ import CartIcon from '../cart-icon/cart-icon';
 
 /* connect is a higher order component 
 that lets us modify our components to have access 
-to things related to redux. 
+to things related to redux.  
 */ 
 import { connect }  from 'react-redux';
-
+   
 import {createStructuredSelector} from "reselect";
 
 //importing our selector

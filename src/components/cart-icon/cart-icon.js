@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import {createStructuredSelector} from "reselect";
-
+ 
 //importing our redux action here
 import {toggleCartHidden} from '../../redux/cart/cart.action';
 
