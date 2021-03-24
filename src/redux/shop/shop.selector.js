@@ -7,6 +7,7 @@ export const selectCollections = createSelector(
   shop => shop.collections
 );
 
+/* this converts our collections onject to array so we can do .map on it inside our CollectionsOverview component */
 export const selectCollectionsForPreview = createSelector(             
   [selectCollections],
   collections => Object.keys(collections).map(key => collections[key])
