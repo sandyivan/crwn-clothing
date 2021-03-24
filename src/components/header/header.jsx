@@ -7,7 +7,7 @@ import { auth } from '../../firebase/firebase.utils';
 //importing our svg as a logo
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 //importing styles for this conponent 
-import { HeaderContainer, LogoContainer, OptionsContainer, OptionDiv, OptionLink } from './header.styles'; 
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './header.styles'; 
 
 //importing the cart component
 import CartIcon from '../cart-icon/cart-icon';
@@ -39,7 +39,7 @@ const Header = ({currentUser, hidden}) => {
                 <OptionLink to='/shop'>Contact</OptionLink>
                {
                    currentUser?
-                   <OptionDiv onClick={() => auth.signOut()}>Sign Out</OptionDiv>
+                   <OptionLink as='div' onClick={() => auth.signOut()}>Sign Out</OptionLink>
                    :
                    <OptionLink to='/signin'>Sign In</OptionLink>
                }
